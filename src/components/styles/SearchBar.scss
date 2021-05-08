@@ -1,0 +1,39 @@
+@use '../../assets/styles/colors';
+@use '../../assets/styles/sizeVariables' as sizes;
+
+#search-bar {
+  display: flex;
+  flex-direction: row;
+  padding-left: sizes.$padding-container;
+  padding-right: sizes.$padding-container;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: colors.$yellow-bg;
+}
+
+#search-input {
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#search-button {
+  display: flex;
+  background-color: colors.$gray-bg;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: auto;
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+#search-button:hover {
+  cursor: pointer;
+}
