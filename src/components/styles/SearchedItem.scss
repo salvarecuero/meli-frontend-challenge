@@ -1,0 +1,46 @@
+@use '../../assets/styles/colors';
+@use '../../assets/styles/sizeVariables' as sizes;
+
+.item-container {
+  display: flex;
+  color: colors.$item-text;
+  margin: sizes.$red-margin;
+  border-bottom-style: inset;
+  border-bottom-width: 1px;
+  border-bottom-color: colors.$gray-bg;
+}
+
+.item-container:last-of-type {
+  border-bottom: none;
+}
+
+.item-picture {
+  border-radius: 4px;
+  margin: sizes.$red-margin;
+  width: 180px;
+  height: 180px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 32px;
+}
+
+.item-price-shipping-div {
+  margin-bottom: sizes.$green-margin;
+}
+
+.item-price {
+  font-size: 24px;
+}
+
+.item-free-shipping {
+  margin-left: 10px;
+}
+
+.item-title {
+  font-size: 18px;
+  color: inherit;
+  text-decoration: none;
+}

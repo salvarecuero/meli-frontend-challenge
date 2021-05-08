@@ -1,0 +1,19 @@
+@use '../../assets/styles/colors';
+@use '../../assets/styles/sizeVariables' as sizes;
+
+.breadcrumb-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: sizes.$padding-container;
+  padding-right: sizes.$padding-container;
+  margin-top: sizes.$red-margin;
+  margin-bottom: sizes.$red-margin;
+}
+
+.breadcrumb-category {
+  color: colors.$gray-text;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}

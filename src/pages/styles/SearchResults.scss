@@ -1,0 +1,23 @@
+@use '../../assets/styles/sizeVariables' as sizes;
+
+#search-results-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-left: sizes.$margin-container;
+  margin-right: sizes.$margin-container;
+  margin-top: sizes.$red-margin;
+}
+
+#error-msg {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: none;
+  margin: none;
+}

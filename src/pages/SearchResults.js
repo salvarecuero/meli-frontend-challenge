@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import qs from "qs";
+import BreadCrumb from "../components/BreadCrumb";
 import SearchedItem from "../components/SearchedItem";
+import "./styles/SearchResults.scss";
 
 function SearchResults({ location }) {
-  const [searchedItemsData, setSearchedItemsData] = useState();
+  const [searchedItems, setSearchedItems] = useState();
+  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -12,22 +15,24 @@ function SearchResults({ location }) {
       }`
     )
       .then((response) => response.json())
-      .then((data) => setSearchedItemsData(data.items));
+      .then((data) => setSearchedItems(data))
+      .then(() => setFetched(true));
   }, [location]);
 
-  if (searchedItemsData) {
+  if (searchedItems?.items?.length) {
     return (
-      <ul>
-        {searchedItemsData.map((item) => (
-          <li key={item.id}>
-            <SearchedItem item={item} />
-          </li>
-        ))}
-      </ul>
+      <>
+        <BreadCrumb categories={searchedItems.categories} />
+        <div id="search-results-container">
+          {searchedItems.items.map((item) => (
+            <SearchedItem key={item.id} item={item} />
+          ))}
+        </div>
+      </>
     );
-  } else {
-    return null;
-  }
+  } else if (fetched) {
+    return <div id="error-msg">No se han encontrado resultados...</div>;
+  } else return null;
 }
 
 export default SearchResults;

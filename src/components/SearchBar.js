@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Logo from "./Logo";
+import "./styles/SearchBar.scss";
+import searchButton from "../assets/images/ic_Search.png";
 
 function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
@@ -11,15 +13,19 @@ function SearchBar() {
   }
 
   return (
-    <div>
+    <div id="search-bar">
       <Logo />
       <input
+        id="search-input"
         type="search"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && submitSearch()}
         placeholder="Nunca dejes de buscar"
       />
-      <button onClick={submitSearch}>Buscar</button>
+      <button id="search-button" onClick={submitSearch}>
+        <img src={searchButton} alt="search button" />
+      </button>
     </div>
   );
 }

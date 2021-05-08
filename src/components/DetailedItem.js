@@ -1,15 +1,41 @@
 import React from "react";
+import "./styles/DetailedItem.scss";
 
 function DetailedItem({ item }) {
+  const conditions = {
+    new: "Nuevo",
+    used: "Usado",
+    not_specified: "",
+  };
   return (
-    <>
-      <img src={item.picture} alt={item.title} />
-      <strong>{item.title}</strong>
-      <span>${item.price.amount}</span>
-      <span>{item.free_shipping ? "Envío gratuito" : ""}</span>
-      <h3>Descripción del producto</h3>
-      <span>{item.description}</span>
-    </>
+    <div className="detailed-item-container">
+      <div className="detailed-item-picture-desc-column">
+        <img
+          className="detailed-item-picture"
+          src={item.picture}
+          alt={item.title}
+        />
+        <span className="detailed-item-desc-title">
+          Descripción del producto
+        </span>
+        <span className="detailed-item-desc">{item.description}</span>
+      </div>
+      <div className="detailed-item-data-column">
+        <span className="detailed-item-condition-sold">
+          {item.condition ? conditions[item.condition] : ""} -{" "}
+          {item.sold_quantity}{" "}
+          {item.sold_quantity !== 1 ? "vendidos" : "vendido"}
+        </span>
+        <strong className="detailed-item-title">{item.title}</strong>
+        <span className="detailed-item-price">
+          $ {item.price.amount.toLocaleString()}
+          <sup className="detailed-item-price-decimals">
+            {item.price.decimals}
+          </sup>
+        </span>{" "}
+        <button className="detailed-item-buy-button">Comprar</button>
+      </div>
+    </div>
   );
 }
 
