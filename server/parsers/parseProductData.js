@@ -9,7 +9,7 @@ module.exports = (item, description) => {
     },
     picture: item.thumbnail,
     condition: item.condition,
-    free_shipping: item.shipping?.free_shipping,
+    free_shipping: item.shipping ? item.shipping.free_shipping : null,
   };
 
   // If the item has description it means that the request has been made
