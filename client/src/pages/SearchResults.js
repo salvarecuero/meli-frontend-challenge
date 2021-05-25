@@ -10,7 +10,7 @@ function SearchResults({ location }) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3500/api/items?q=${
+      `https://meli-frontend-challenge-server-salvarecuero.vercel.app/api/items?q=${
         qs.parse(location.search)["?search"]
       }`
     )

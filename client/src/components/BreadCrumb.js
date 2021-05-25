@@ -13,7 +13,7 @@ function BreadCrumb({ categories, category_id }) {
 
   async function getCategories() {
     return await fetch(`
-    http://localhost:3500/api/categories/${category_id}
+    https://meli-frontend-challenge-server-salvarecuero.vercel.app/api/categories/${category_id}
     `)
       .then((response) => response.json())
       .then((data) => setStatedCategories(data));

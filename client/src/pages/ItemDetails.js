@@ -8,7 +8,7 @@ function ItemDetails() {
 
   useEffect(() => {
     fetch(`
-    http://localhost:3500/api/items/${params.id}
+    https://meli-frontend-challenge-server-salvarecuero.vercel.app/api/items/${params.id}
     `)
       .then((response) => response.json())
       .then((data) => setProduct(data));
